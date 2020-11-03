@@ -21,7 +21,8 @@ def all_users():
 
 @app.post("/users", status_code=status.HTTP_201_CREATED)
 def post_user(user: User):
-    user_service.post_user(dict(user))
+    return user_service.post_user(dict(user))
+
 
 if __name__ == '__main__':
     uvicorn.run("app:app", host ='127.0.0.1', port=5000)
