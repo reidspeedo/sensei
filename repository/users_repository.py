@@ -15,4 +15,8 @@ def post_user(user):
     db.users.insert(user)
     return ['Successfully added {} to the database'.format(user["Name"]) for user in db.users.find({"Name": user["Name"]})]
 
-
+def delete_users(user):
+    return {
+        "Status": db.users.remove({"Name": user["Name"], "Age": user["Age"]}, True),
+        "Details": user
+    }

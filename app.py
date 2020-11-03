@@ -14,6 +14,10 @@ class User(BaseModel):
 def get_users(username):
     return user_service.get_user(username)
 
+@app.delete("/users")
+def delete_users(user: User):
+    return user_service.delete_users(dict(user))
+
 @app.get("/users")
 def all_users():
     return user_service.get_users()
